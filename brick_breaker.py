@@ -1,5 +1,6 @@
 import pygame as pg   # import the pygame package
 
+
 pg.init()  # Initializes all pygame modules
 
 
@@ -9,7 +10,7 @@ height = 480
 screen = pg.display.set_mode((width, height))  # This creates the main window
 screen.fill("#ADD8E6")  # Filled the main window with the colour
 pg.display.set_caption("Brick Breaker")  # Overwrite the default name 
-icon = pg.image.load("game_icon.png")  # Loads in an image from your working directory
+icon = pg.image.load("assets/game_icon.png")  # Loads in an image from your working directory
 pg.display.set_icon(icon)   # Overwrite the default icon
 
 
@@ -17,7 +18,7 @@ clock = pg.time.Clock()  # Creates a clock object that controls the frame rate o
 
 
 
-surface = pg.image.load("background.jpg")  # Loads in my game screen
+surface = pg.image.load("assets/background.jpg")  # Loads in my game screen
 
 
 
@@ -25,7 +26,7 @@ surface = pg.image.load("background.jpg")  # Loads in my game screen
 class Ball(pg.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pg.image.load("ball.png")  # Loads in an image for my ball
+        self.image = pg.image.load("assets/ball.png")  # Loads in an image for my ball
         self.rect = self.image.get_rect(midbottom=(160, 442))  # Wraps a rect around the ball object and sets it's position
         self.x_vel = 2  # initializing the ball's x velocity
         self.y_vel = -2  # initializig the ball's y velocity
@@ -52,7 +53,7 @@ class Ball(pg.sprite.Sprite):
 class Paddle(pg.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pg.image.load("paddle3.png")
+        self.image = pg.image.load("assets/paddle3.png")
         self.rect = self.image.get_rect(midbottom=(160, 466))
         
 
@@ -160,7 +161,7 @@ while flag:
             text_rect = text.get_rect(center=(160, 240))
             screen.blit(text, text_rect)
 
-        live = pg.image.load("heart.png") # Load heart image
+        live = pg.image.load("assets/heart.png") # Load heart image
         for i in range(lives):  # Display an heart for each life user has
                 x = (i * 21)
                 live_rect = live.get_rect(bottomleft=(x, 480))
